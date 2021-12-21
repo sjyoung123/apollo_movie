@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import { createGlobalStyle } from "styled-components";
-
-const GlobalStlye = createGlobalStyle`
+import { ApolloProvider } from "@apollo/client";
+import client from "./apollo";
+const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -54,8 +55,10 @@ body{
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStlye />
-    <App />
+    <ApolloProvider client={client}>
+      <GlobalStyle />
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
