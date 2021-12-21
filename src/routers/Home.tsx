@@ -39,12 +39,22 @@ const Subtitle = styled.h3`
   font-size: 35px;
 `;
 
-const Loading = styled.div`
+export const Loading = styled.div`
   font-size: 18px;
   opacity: 0.5;
   font-weight: 500;
   margin-top: 10px;
 `;
+
+const Movies = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  width: 60%;
+  position: relative;
+  top: -50px;
+`;
+
 interface IQueryData {
   movies: [
     {
@@ -68,11 +78,15 @@ function Home() {
         {loading ? (
           <Loading>Loading...</Loading>
         ) : (
-          <div>
+          <Movies>
             {data?.movies.map((movie) => (
-              <Movie id={movie.id} key={movie.id} />
+              <Movie
+                id={movie.id}
+                bg={movie.medium_cover_image}
+                key={movie.id}
+              />
             ))}
-          </div>
+          </Movies>
         )}
       </Container>
     </>
