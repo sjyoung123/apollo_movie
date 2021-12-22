@@ -88,7 +88,7 @@ function Detail() {
               <Subtitle>
                 {data?.movie.language} {`${data?.movie.rating}/10`}
               </Subtitle>
-              <Description>{data?.movie.description_intro} </Description>
+              <Description>{data?.movie.description_intro}</Description>
             </>
           )}
         </Column>
