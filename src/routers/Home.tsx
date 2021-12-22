@@ -7,6 +7,7 @@ const GET_MOVIE = gql`
     movies {
       id
       medium_cover_image
+      isLiked @client
     }
   }
 `;
@@ -61,6 +62,7 @@ interface IQueryData {
       __typename: string;
       id: number;
       medium_cover_image: string;
+      isLiked: boolean;
     }
   ];
 }
@@ -84,6 +86,7 @@ function Home() {
                 id={movie.id}
                 bg={movie.medium_cover_image}
                 key={movie.id}
+                isLiked={movie.isLiked}
               />
             ))}
           </Movies>
